@@ -1,20 +1,34 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import AppNavigator from "./navigation/AppNavigator"; // Import your navigator
+import { useFonts } from "expo-font";
+import { Text, View, StyleSheet } from "react-native";
+import { Ionicons } from "@expo/vector-icons"; // Example icon library
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+const App = () => {
+  let [fontsLoaded] = useFonts({
+    CustomFont: require("./assets/fonts/CustomFont.ttf"), 
+    ...Ionicons.font, 
+  });
+
+  if (!fontsLoaded) {
+    return (
+      <View style={styles.loadingContainer}>
+        <Text>Loading fonts...</Text>
+      </View>
+    );
+  } else {
+    return <AppNavigator />;
+  }
+};
 
 const styles = StyleSheet.create({
-  container: {
+  loadingContainer: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
+
+export default App;
