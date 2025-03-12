@@ -74,20 +74,15 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#f8f8ff",
+    backgroundColor: "#58bafc",
   },
   title: {
     fontFamily: "Montserrat-Italic",
-    fontSize: 28,
+    fontSize: 32,
     fontWeight: "bold",
     marginBottom: 20,
-    color: "#333333",
+    color: "#030303",
   },
-//   loadingText: {
-//     marginTop: 10,
-//     fontSize: 16,
-//     color: "#777777",
-//   },
   dotContainer: {
     flexDirection: "row",
     marginBottom: 10,
@@ -96,7 +91,7 @@ const styles = StyleSheet.create({
     width: 10,
     height: 10,
     borderRadius: 5,
-    backgroundColor: "#33adff",
+    backgroundColor: "white",
     marginHorizontal: 5,
   },
 });
