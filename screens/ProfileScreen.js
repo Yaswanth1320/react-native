@@ -184,6 +184,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: "bold",
+    fontFamily: "Montserrat_600SemiBold", // Use Montserrat Semibold for title
   },
   profileContainer: {
     alignItems: "center",
@@ -213,10 +214,12 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: "bold",
     marginTop: 5,
+    fontFamily: "Montserrat_700Bold", // Use Montserrat Bold for name
   },
   occupation: {
     fontSize: 16,
     color: "gray",
+    fontFamily: "Montserrat_400Regular",
   },
   wave: {
     backgroundColor: "#33adff",
@@ -231,6 +234,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     marginBottom: 10,
     marginTop: 10,
+    fontFamily: "Montserrat_600SemiBold", // Use Montserrat Semibold for section title
   },
   ordersContainer: {
     flexDirection: "row",
@@ -253,6 +257,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     textAlign: "center",
     marginTop: 5,
+    fontFamily: "Montserrat_400Regular",
   },
   content: {
     flex: 1,
@@ -270,6 +275,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginLeft: 10,
     flex: 1,
+    fontFamily: "Montserrat_400Regular",
   },
   bottomContainer: {
     position: "absolute",
@@ -289,6 +295,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "gray",
     marginLeft: 5,
+    fontFamily: "Montserrat_400Regular",
   },
 });
 

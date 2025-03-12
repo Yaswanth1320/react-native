@@ -77,11 +77,11 @@ const styles = StyleSheet.create({
     backgroundColor: "#58bafc",
   },
   title: {
-    fontFamily: "Montserrat-Italic",
     fontSize: 32,
     fontWeight: "bold",
     marginBottom: 20,
     color: "#030303",
+    fontFamily: "Montserrat_700Bold", // Use Montserrat Bold for title
   },
   dotContainer: {
     flexDirection: "row",

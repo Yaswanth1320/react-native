@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const CartScreen = () => (
+const ProductsScreen = () => (
   <View style={styles.container}>
-    <Text>Cart</Text>
+    <Text style={styles.text}>Products</Text>
   </View>
 );
 
@@ -13,6 +13,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  text: {
+    fontFamily: "Montserrat_400Regular"
+  }
 });
 
-export default CartScreen;
+export default ProductsScreen;

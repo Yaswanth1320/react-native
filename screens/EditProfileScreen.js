@@ -130,6 +130,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     textAlign: "center",
+    fontFamily: "Montserrat_600SemiBold", // Use Montserrat Semibold for header
   },
   profileImage: {
     width: 100,
@@ -160,6 +161,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     marginBottom: 8,
+    fontFamily: "Montserrat_600SemiBold", // Use Montserrat Semibold for label
   },
   input: {
     borderWidth: 1,
@@ -168,6 +170,7 @@ const styles = StyleSheet.create({
     padding: 10,
     fontSize: 20,
     backgroundColor: "white",
+    fontFamily: "Montserrat_400Regular", // Use Montserrat Regular for input
   },
   saveButton: {
     backgroundColor: "#3498db",
@@ -179,6 +182,7 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 18,
     fontWeight: "bold",
+    fontFamily: "Montserrat_600SemiBold", // Use Montserrat Semibold for button text
   },
 });
 

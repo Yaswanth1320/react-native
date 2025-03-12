@@ -55,6 +55,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginLeft: 8,
     marginBottom: 8,
+    fontFamily: "Montserrat_400Regular",
   },
   searchBarContainer: {
     flexDirection: "row",
@@ -68,6 +69,7 @@ const styles = StyleSheet.create({
   searchBar: {
     flex: 1,
     height: 40,
+    fontFamily: "Montserrat_400Regular",
   },
   mainContent: {
     flex: 1,

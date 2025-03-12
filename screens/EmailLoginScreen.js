@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 20,
+    fontFamily: "Montserrat_600SemiBold",
   },
   input: {
     width: '100%',
@@ -54,6 +55,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingLeft: 10,
     marginBottom: 15,
+    fontFamily: "Montserrat_400Regular",
   },
   loginButton: {
     backgroundColor: '#33adff',
@@ -65,6 +67,7 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 16,
     fontWeight: 'bold',
+    fontFamily: "Montserrat_600SemiBold",
   },
 });
 

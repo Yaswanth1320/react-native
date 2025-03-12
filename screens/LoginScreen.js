@@ -21,7 +21,7 @@ const LoginScreen = () => {
       <View style={styles.tabContainer}>
         <Tab.Navigator
           screenOptions={{
-            tabBarLabelStyle: { fontSize: 16, fontWeight: "bold" },
+            tabBarLabelStyle: { fontSize: 16, fontWeight: "bold", fontFamily: "Montserrat_600SemiBold" },
             tabBarStyle: { backgroundColor: "#FFFFFF", borderRadius: 10 },
             tabBarIndicatorStyle: { backgroundColor: "#33adff", height: 3 },
             tabBarInactiveTintColor: "#777777",
@@ -51,12 +51,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   appTitle: {
-    fontFamily: "Montserrat-Italic",
     fontSize: 32,
     fontWeight: "bold",
     marginBottom: 20,
     marginTop: 40,
     textAlign: "center",
+    fontFamily: "Montserrat_700Bold",
   },
   tabContainer: {
     width: "80%",
@@ -74,11 +74,13 @@ const styles = StyleSheet.create({
   signupText: {
     fontSize: 16,
     color: "#777777",
+    fontFamily: "Montserrat_400Regular",
   },
   signupButtonText: {
     color: "#007AFF",
     fontSize: 16,
     fontWeight: "bold",
+    fontFamily: "Montserrat_600SemiBold",
   },
 });
 

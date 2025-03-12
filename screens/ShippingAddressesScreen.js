@@ -41,8 +41,8 @@ const ShippingAddressesScreen = () => {
   const renderItem = ({ item }) => (
     <View style={styles.addressItem}>
       <Text style={styles.addressName}>{item.name}</Text>
-      <Text>{item.street}</Text>
-      <Text>
+      <Text style={styles.addressText}>{item.street}</Text>
+      <Text style={styles.addressText}>
         {item.city}, {item.state} {item.zip}
       </Text>
       {item.isDefault && (
@@ -98,6 +98,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: "bold",
+    fontFamily: "Montserrat_600SemiBold",
   },
   addressItem: {
     backgroundColor: "white",
@@ -114,10 +115,15 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     marginBottom: 5,
+    fontFamily: "Montserrat_600SemiBold",
+  },
+  addressText: {
+    fontFamily: "Montserrat_400Regular",
   },
   defaultAddress: {
     color: "green",
     marginTop: 5,
+    fontFamily: "Montserrat_400Regular",
   },
   addressActions: {
     flexDirection: "row",
@@ -133,6 +139,7 @@ const styles = StyleSheet.create({
   },
   editButtonText: {
     color: "white",
+    fontFamily: "Montserrat_400Regular",
   },
   deleteButton: {
     backgroundColor: "#e74c3c",
@@ -142,6 +149,7 @@ const styles = StyleSheet.create({
   },
   deleteButtonText: {
     color: "white",
+    fontFamily: "Montserrat_400Regular",
   },
   addButton: {
     backgroundColor: "#2ecc71",
@@ -153,6 +161,7 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 18,
     fontWeight: "bold",
+    fontFamily: "Montserrat_600SemiBold",
   },
 });
 

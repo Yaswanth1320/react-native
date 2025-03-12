@@ -2,9 +2,9 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack"; // Import Stack Navigator
 import HomeScreen from "../screens/HomeScreen";
-import ProductsScreen from "../screens/ProductsScreen";
 import CartScreen from "../screens/CartScreen";
 import ProfileScreen from "../screens/ProfileScreen";
+import ProductsScreen from "../screens/ProductsScreen";
 import EditProfileScreen from "../screens/EditProfileScreen"; // Import Edit Profile Screen
 import ShippingAddressesScreen from "../screens/ShippingAddressesScreen"; // Import Shipping Addresses Screen
 import Icon from "react-native-vector-icons/Ionicons";

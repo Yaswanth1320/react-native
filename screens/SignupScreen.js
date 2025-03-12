@@ -64,11 +64,13 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginBottom: 10,
     color: "#333333", // Darker text color
+    fontFamily: "Montserrat_700Bold", // Use Montserrat Bold for title
   },
   subtitle: {
     fontSize: 16,
     color: "#777777",
     marginBottom: 30,
+    fontFamily: "Montserrat_400Regular",
   },
   input: {
     width: "100%",
@@ -80,6 +82,7 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     paddingLeft: 15,
     fontSize: 16,
+    fontFamily: "Montserrat_400Regular",
   },
   signupButton: {
     width: "100%",
@@ -93,6 +96,7 @@ const styles = StyleSheet.create({
     color: "#FFFFFF",
     fontSize: 18,
     fontWeight: "bold",
+    fontFamily: "Montserrat_700Bold", // Use Montserrat Bold for button text
   },
 });
 
