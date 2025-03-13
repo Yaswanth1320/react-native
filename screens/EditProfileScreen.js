@@ -10,6 +10,7 @@ import {
 import { MaterialIcons, Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import * as ImagePicker from "expo-image-picker"; // For image picking
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const EditProfileScreen = () => {
   const navigation = useNavigation();
@@ -58,79 +59,91 @@ const EditProfileScreen = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.headerContainer}>
-        <TouchableOpacity
-          style={styles.backButton}
-          onPress={() => {
-            navigation.goBack();
-          }}
-        >
-          <Ionicons name="arrow-back" size={24} color="black" />
-        </TouchableOpacity>
-        <Text style={styles.header}>Edit Profile</Text>
-      </View>
+    <SafeAreaView style={styles.safeArea}>
+      <View style={styles.container}>
+        <View style={styles.headerContainer}>
+          <TouchableOpacity
+            style={styles.backButton}
+            onPress={() => {
+              navigation.goBack();
+            }}
+          >
+            <Ionicons name="arrow-back" size={18} color="black" />
+          </TouchableOpacity>
+          <Text style={styles.header}>Edit Profile</Text>
+        </View>
 
-      <View style={styles.profileImageContainer}>
-        <TouchableOpacity onPress={pickImage}>
-          <Image source={{ uri: profileImage }} style={styles.profileImage} />
-          <View style={styles.cameraIconContainer}>
-            <MaterialIcons name="camera-alt" size={20} color="gray" />
+        <View style={styles.profileImageContainer}>
+          <TouchableOpacity onPress={pickImage}>
+            <Image source={{ uri: profileImage }} style={styles.profileImage} />
+            <View style={styles.cameraIconContainer}>
+              <MaterialIcons name="camera-alt" size={20} color="gray" />
+            </View>
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.formContainer}>
+          <View style={styles.inputContainer}>
+            <Text style={styles.label}>Name:</Text>
+            <TextInput
+              style={styles.input}
+              value={name}
+              onChangeText={setName}
+            />
           </View>
-        </TouchableOpacity>
+
+          <View style={styles.inputContainer}>
+            <Text style={styles.label}>Occupation:</Text>
+            <TextInput
+              style={styles.input}
+              value={occupation}
+              onChangeText={setOccupation}
+            />
+          </View>
+
+          <View style={styles.inputContainer}>
+            <Text style={styles.label}>Email:</Text>
+            <TextInput
+              style={styles.input}
+              value={email}
+              onChangeText={setEmail}
+              keyboardType="email-address"
+            />
+          </View>
+
+          <TouchableOpacity
+            style={styles.saveButton}
+            onPress={handleSaveProfile}
+          >
+            <Text style={styles.saveButtonText}>Save Profile</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-
-      <View style={styles.formContainer}>
-        <View style={styles.inputContainer}>
-          <Text style={styles.label}>Name:</Text>
-          <TextInput style={styles.input} value={name} onChangeText={setName} />
-        </View>
-
-        <View style={styles.inputContainer}>
-          <Text style={styles.label}>Occupation:</Text>
-          <TextInput
-            style={styles.input}
-            value={occupation}
-            onChangeText={setOccupation}
-          />
-        </View>
-
-        <View style={styles.inputContainer}>
-          <Text style={styles.label}>Email:</Text>
-          <TextInput
-            style={styles.input}
-            value={email}
-            onChangeText={setEmail}
-            keyboardType="email-address"
-          />
-        </View>
-
-        <TouchableOpacity style={styles.saveButton} onPress={handleSaveProfile}>
-          <Text style={styles.saveButtonText}>Save Profile</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+  },
   container: {
     flex: 1,
     backgroundColor: "#f5f5f5",
   },
-  backButton: {},
+  backButton: {
+    marginRight: 6,
+  },
   headerContainer: {
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    padding: 20,
-    gap: 20,
+    padding: 10,
   },
   header: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: "bold",
-    textAlign: "center",
-    fontFamily: "Montserrat_600SemiBold", // Use Montserrat Semibold for header
+    fontFamily: "Montserrat_600SemiBold",
   },
   profileImage: {
     width: 100,

@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { MaterialIcons, Ionicons } from "@expo/vector-icons";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const ShippingAddressesScreen = () => {
   const navigation = useNavigation();
@@ -60,43 +61,49 @@ const ShippingAddressesScreen = () => {
   );
 
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <TouchableOpacity style={styles.backButton} onPress={handleGoBack}>
-          <Ionicons name="arrow-back" size={24} color="black" />
+    <SafeAreaView style={styles.safeArea}>
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <TouchableOpacity style={styles.backButton} onPress={handleGoBack}>
+            <Ionicons name="arrow-back" size={18} color="black" />
+          </TouchableOpacity>
+          <Text style={styles.title}>Shipping Addresses</Text>
+        </View>
+
+        <FlatList
+          data={addresses}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id}
+        />
+
+        <TouchableOpacity style={styles.addButton}>
+          <Text style={styles.addButtonText}>Add New Address</Text>
         </TouchableOpacity>
-        <Text style={styles.title}>Shipping Addresses</Text>
       </View>
-
-      <FlatList
-        data={addresses}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-      />
-
-      <TouchableOpacity style={styles.addButton}>
-        <Text style={styles.addButtonText}>Add New Address</Text>
-      </TouchableOpacity>
-    </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+  },
   container: {
     flex: 1,
-    padding: 20,
+    padding: 10,
     backgroundColor: "#f5f5f5",
   },
   header: {
+    display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    marginBottom: 20,
+    padding: 10,
   },
   backButton: {
     marginRight: 10,
   },
   title: {
-    fontSize: 24,
+    fontSize: 18,
     fontWeight: "bold",
     fontFamily: "Montserrat_600SemiBold",
   },

@@ -1,11 +1,19 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  Dimensions,
+} from "react-native";
 import {
   MaterialIcons,
   MaterialCommunityIcons,
   Ionicons,
 } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const ProfileScreen = () => {
   const navigation = useNavigation();
@@ -42,7 +50,7 @@ const ProfileScreen = () => {
     },
     {
       name: "Wishlist",
-      icon: "heart",
+      icon: "favorite", // corrected icon name
       iconType: "MaterialIcons",
       color: "#e91e63",
     },
@@ -57,97 +65,99 @@ const ProfileScreen = () => {
   const [hoveredItem, setHoveredItem] = useState(null);
 
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <TouchableOpacity
-          style={styles.backButton}
-          onPress={() => {
-            navigation.goBack();
-          }}
-        >
-          <Ionicons name="arrow-back" size={24} color="black" />
-        </TouchableOpacity>
-        <Text style={styles.title}>Profile</Text>
-      </View>
-
-      {/* Profile Info */}
-      <View style={styles.profileContainer}>
-        <View style={{ position: "relative" }}>
-          <Image
-            source={{ uri: user.profileImage }}
-            style={styles.profileImage}
-          />
-          <TouchableOpacity style={styles.cameraIconContainer}>
-            <MaterialIcons name="camera-alt" size={20} color="gray" />
-          </TouchableOpacity>
-        </View>
-        <View style={styles.profileInfo}>
-          <Text style={styles.name}>{user.name}</Text>
-          <Text style={styles.occupation}>{user.occupation}</Text>
-        </View>
-      </View>
-
-      {/* Pink Wave (using a simple View with styling) */}
-      <View style={styles.wave} />
-
-      {/* My Orders */}
-      <Text style={styles.sectionTitle}>My Orders</Text>
-      <View style={styles.ordersContainer}>
-        {orderCategories.map((category, index) => (
+    <SafeAreaView style={styles.safeArea}>
+      <View style={styles.container}>
+        <View style={styles.header}>
           <TouchableOpacity
-            key={index}
-            style={[
-              styles.orderItem,
-              {
-                backgroundColor:
-                  hoveredItem === index ? "lightgray" : "whitesmoke", //hover color
-              },
-            ]}
-            onPressIn={() => setHoveredItem(index)} // Hover start
-            onPressOut={() => setHoveredItem(null)} // Hover end
-            activeOpacity={1} //  Make sure opacity doesn't change on press
+            style={styles.backButton}
+            onPress={() => {
+              navigation.goBack();
+            }}
           >
-            {category.iconType === "MaterialIcons" && (
-              <MaterialIcons
-                name={category.icon}
-                size={20}
-                color={category.color}
-              />
-            )}
-            {category.iconType === "MaterialCommunityIcons" && (
-              <MaterialCommunityIcons
-                name={category.icon}
-                size={20}
-                color={category.color}
-              />
-            )}
-            <Text style={styles.orderText}>{category.name}</Text>
+            <Ionicons name="arrow-back" size={18} color="black" />
           </TouchableOpacity>
-        ))}
-      </View>
+          <Text style={styles.title}>Profile</Text>
+        </View>
 
-      <View style={styles.content}>
-        {/* Options */}
-        <TouchableOpacity
-          style={styles.optionItem}
-          onPress={() => {
-            navigation.navigate("EditProfile");
-          }}
-        >
-          <MaterialIcons name="person" size={20} color="gray" />
-          <Text style={styles.optionText}>Edit Profile</Text>
-          <MaterialIcons name="chevron-right" size={20} color="gray" />
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.optionItem}
-          onPress={() => {
-            navigation.navigate("ShippingAddresses");
-          }}
-        >
-          <MaterialIcons name="location-on" size={20} color="gray" />
-          <Text style={styles.optionText}>Shipping Address</Text>
-          <MaterialIcons name="chevron-right" size={20} color="gray" />
-        </TouchableOpacity>
+        {/* Profile Info */}
+        <View style={styles.profileContainer}>
+          <View style={{ position: "relative" }}>
+            <Image
+              source={{ uri: user.profileImage }}
+              style={styles.profileImage}
+            />
+            <TouchableOpacity style={styles.cameraIconContainer}>
+              <MaterialIcons name="camera-alt" size={20} color="gray" />
+            </TouchableOpacity>
+          </View>
+          <View style={styles.profileInfo}>
+            <Text style={styles.name}>{user.name}</Text>
+            <Text style={styles.occupation}>{user.occupation}</Text>
+          </View>
+        </View>
+
+        {/* Pink Wave (using a simple View with styling) */}
+        <View style={styles.wave} />
+
+        {/* My Orders */}
+        <Text style={styles.sectionTitle}>My Orders</Text>
+        <View style={styles.ordersContainer}>
+          {orderCategories.map((category, index) => (
+            <TouchableOpacity
+              key={index}
+              style={[
+                styles.orderItem,
+                {
+                  backgroundColor:
+                    hoveredItem === index ? "lightgray" : "whitesmoke", //hover color
+                },
+              ]}
+              onPressIn={() => setHoveredItem(index)} // Hover start
+              onPressOut={() => setHoveredItem(null)} // Hover end
+              activeOpacity={1} //  Make sure opacity doesn't change on press
+            >
+              {category.iconType === "MaterialIcons" && (
+                <MaterialIcons
+                  name={category.icon}
+                  size={20}
+                  color={category.color}
+                />
+              )}
+              {category.iconType === "MaterialCommunityIcons" && (
+                <MaterialCommunityIcons
+                  name={category.icon}
+                  size={20}
+                  color={category.color}
+                />
+              )}
+              <Text style={styles.orderText}>{category.name}</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+
+        <View style={styles.content}>
+          {/* Options */}
+          <TouchableOpacity
+            style={styles.optionItem}
+            onPress={() => {
+              navigation.navigate("EditProfile");
+            }}
+          >
+            <MaterialIcons name="person" size={20} color="gray" />
+            <Text style={styles.optionText}>Edit Profile</Text>
+            <MaterialIcons name="chevron-right" size={20} color="gray" />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.optionItem}
+            onPress={() => {
+              navigation.navigate("ShippingAddresses");
+            }}
+          >
+            <MaterialIcons name="location-on" size={20} color="gray" />
+            <Text style={styles.optionText}>Shipping Address</Text>
+            <MaterialIcons name="chevron-right" size={20} color="gray" />
+          </TouchableOpacity>
+        </View>
       </View>
 
       {/* Logout */}
@@ -162,27 +172,30 @@ const ProfileScreen = () => {
           <Text style={styles.logoutText}>Logout</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+  },
   container: {
     flex: 1,
-    backgroundColor: "#f9f9f9",
-    paddingTop: 20, // Adjust for status bar
+    paddingTop: 10,
+    marginBottom: 60,
   },
   header: {
     flexDirection: "row",
     alignItems: "center",
-    paddingHorizontal: 16,
+    paddingHorizontal: 10,
     paddingBottom: 16,
   },
   backButton: {
-    marginRight: 16,
+    marginRight: 6,
   },
   title: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: "bold",
     fontFamily: "Montserrat_600SemiBold", // Use Montserrat Semibold for title
   },
@@ -238,19 +251,26 @@ const styles = StyleSheet.create({
   },
   ordersContainer: {
     flexDirection: "row",
+    height: 200,
     flexWrap: "wrap",
     justifyContent: "space-around",
-    padding: 15,
+    padding: 20,
     marginBottom: 10,
   },
   orderItem: {
-    backgroundColor: "whitesmoke",
+    backgroundColor: "#ecf0f1", // Light gray background color
     alignItems: "center",
+    height: 80,
     justifyContent: "center",
     padding: 12,
-    borderRadius: 40,
+    borderRadius: 60,
     width: "30%",
     marginBottom: 10,
+    shadowColor: "#000", // Add a subtle shadow
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 2,
+    elevation: 2,
   },
 
   orderText: {
@@ -282,8 +302,9 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    padding: 10,
-    backgroundColor: "#f9f9f9",
+    padding: 3,
+    borderTopWidth: 1,
+    borderTopColor: "#eee",
   },
   logoutButton: {
     flexDirection: "row",

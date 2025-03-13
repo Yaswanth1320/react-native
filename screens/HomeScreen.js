@@ -15,10 +15,9 @@ const HomeScreen = () => {
   const username = "John Doe"; // Replace with actual username
   return (
     <SafeAreaView style={styles.container}>
-      {/* Top Content */}
       <View style={styles.topContent}>
         <Text style={styles.welcomeText}>Welcome, {username}!</Text>
-        <View style={{ flexDirection: "row", alignItems: "center", flex: 1 }}>
+        <View style={styles.wrapper}>
           <View style={styles.searchBarContainer}>
             <TextInput style={styles.searchBar} placeholder="Search..." />
             <TouchableOpacity onPress={() => console.log("Search pressed")}>
@@ -44,25 +43,34 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    height: "100%",
   },
   topContent: {
     flexDirection: "column",
     justifyContent: "space-between",
-    padding: 16,
+    alignItems: "center",
+    padding: 10,
+    height: 100,
     backgroundColor: "#fff",
+  },
+  wrapper: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingHorizontal: 20,
   },
   welcomeText: {
     fontSize: 14,
     marginLeft: 8,
     marginBottom: 8,
     fontFamily: "Montserrat_400Regular",
+    padding: 8,
   },
   searchBarContainer: {
     flexDirection: "row",
     alignItems: "center",
     backgroundColor: "#eee",
     borderRadius: 20,
-    flex: 1, // Take available space
     marginRight: 10,
     paddingHorizontal: 10,
   },

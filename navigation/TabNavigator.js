@@ -10,7 +10,7 @@ import ShippingAddressesScreen from "../screens/ShippingAddressesScreen"; // Imp
 import Icon from "react-native-vector-icons/Ionicons";
 
 const Tab = createBottomTabNavigator();
-const Stack = createStackNavigator();  // Create a Stack Navigator
+const Stack = createStackNavigator(); // Create a Stack Navigator
 
 // Function to create a Stack Navigator for the Profile tab
 const ProfileStackNavigator = () => {
@@ -57,10 +57,12 @@ const TabNavigator = () => {
         tabBarStyle: {
           backgroundColor: "#f8f8ff",
           borderTopColor: "#ddd",
-          height: 60,
-          paddingBottom: 5,
+          height: 80,
+          paddingBottom: 15,
           paddingTop: 5,
         },
+        tabBarPosition: "bottom",
+        safeAreaInset: { bottom: "always", top: "never" },
       })}
     >
       <Tab.Screen name="Home" component={HomeScreen} />
